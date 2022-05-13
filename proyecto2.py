@@ -2,20 +2,28 @@
 
 from timeit import default_timer as timer
 from sys import stdin
+import threading
 
 
 def lectura():
     start = timer()
     nCasos = int(stdin.readline())
+    threads = []
     # print(nCasos)
     while nCasos != 0:
 
         linea = stdin.readline().replace('\n', '')
         lista = linea.split(" ")
         # print("lista", lista)
-        procesar(lista)
+        t = threading.Thread(target=procesar, args=(lista,))
+        threads.append(t)
+        t.start()
+        # procesar(lista)
 
         nCasos -= 1
+
+    for t in threads:
+        t.join()
 
     elapsed_time = timer() - start
     print("Time: %.10f" % elapsed_time)
