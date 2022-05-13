@@ -1,11 +1,15 @@
-#                ඞ mondongos
+# William Mendez – 202012662
+# Juliana Galeano – 202012128
+# Daniel Aguilera – 202010592
+# Boris N. Reyes R. – 202014743
 
-from timeit import default_timer as timer
+
+# from timeit import default_timer as timer
 from sys import stdin
 
 
 def lectura():
-    start = timer()
+    # start = timer()
     nCasos = int(stdin.readline())
     # print(nCasos)
     while nCasos != 0:
@@ -17,8 +21,8 @@ def lectura():
 
         nCasos -= 1
 
-    elapsed_time = timer() - start
-    print("Time: %.10f" % elapsed_time)
+    # elapsed_time = timer() - start
+    # print("Time: %.10f" % elapsed_time)
 
 
 def procesar(lista):
