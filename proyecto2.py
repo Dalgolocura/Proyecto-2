@@ -23,23 +23,33 @@ def lectura():
 
 def procesar(lista):
     mayor= None
-    menor = None
+    menortemporal = None
+    menortotal = min(lista)
+    inicio = None
     componentes = 0
+    igual= False
     for n in range(0, len(lista)):
-        num = int(lista[n])
-        if mayor == None:
-            menor = num
-            mayor = num
-            componentes+=1
-        elif num> mayor:
-            menor = mayor
-            mayor = num
-            componentes+=1
-        elif num <  menor:
-            if mayor == menor:
-                menor= num
-            elif componentes > 1:
-                omponentes-=1
+            num = int(lista[n])
+            if mayor == None:
+                inicio = num
+                menortemporal = num
+                mayor = num
+                componentes+=1
+
+            elif num> mayor:
+                menortemporal = mayor
+                mayor = num
+                componentes+=1
+
+            elif num <  menortemporal:
+                if mayor == menortemporal:
+                    menortemporal= num
+                elif componentes > 1:
+                    componentes-=1
+            if menortemporal == menortotal:
+                igual = True
+    if menortotal == inicio or igual:
+        componentes = componentes+1
     print(componentes)
 
 
