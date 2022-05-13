@@ -31,7 +31,7 @@ def procesar(lista):
             encontrados[n1] = 0
             for i in range(n+1, len(lista)):
                 n2 = int(lista[i])
-                if repetido and (n1 > n2):
+                if repetido and (n1 > n2) and n2 not in encontrados:
                     encontrados[n2] = 0
                 if (not(repetido)) and (n1 > n2):
                     if n2 in encontrados:
