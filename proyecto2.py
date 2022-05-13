@@ -22,24 +22,24 @@ def lectura():
 
 
 def procesar(lista):
-    encontrados = {}
+    mayor= None
+    menor = None
     componentes = 0
     for n in range(0, len(lista)):
-        n1 = int(lista[n])
-        if n1 not in encontrados:
-            repetido = False
-            encontrados[n1] = 0
-            for i in range(n+1, len(lista)):
-                n2 = int(lista[i])
-                if repetido and (n1 > n2) and n2 not in encontrados:
-                    encontrados[n2] = 0
-                if (not(repetido)) and (n1 > n2):
-                    if n2 in encontrados:
-                        repetido = True
-                    if n2 not in encontrados:
-                        encontrados[n2] = 0
-            if repetido == False:
-                componentes += 1
+        num = int(lista[n])
+        if mayor == None:
+            menor = num
+            mayor = num
+            componentes+=1
+        elif num> mayor:
+            menor = mayor
+            mayor = num
+            componentes+=1
+        elif num <  menor:
+            if mayor == menor:
+                menor= num
+            else:
+                componentes-=1
     print(componentes)
 
 
