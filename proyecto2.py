@@ -38,8 +38,8 @@ def procesar(lista):
         elif num <  menor:
             if mayor == menor:
                 menor= num
-            else:
-                componentes-=1
+            elif componentes > 1:
+                omponentes-=1
     print(componentes)
 
 
